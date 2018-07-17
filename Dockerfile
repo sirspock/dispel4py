@@ -1,6 +1,6 @@
 # Create Ubuntu environment
 
-FROM ubuntu:14.04
+FROM ubuntu:18.04
 MAINTAINER Amy Krause <a.krause@epcc.ed.ac.uk>
 
 RUN apt-get update && apt-get install -y  \
@@ -17,5 +17,5 @@ RUN apt-get update && apt-get install -y  \
 RUN pip install mpi4py
 
 # install dispel4py latest
-RUN pip install git+git://github.com/dispel4py/dispel4py.git@master
+RUN pip install git+git://github.com/sirspock/dispel4py.git@master
 
