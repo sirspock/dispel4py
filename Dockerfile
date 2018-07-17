@@ -3,7 +3,17 @@
 FROM ubuntu:14.04
 MAINTAINER Amy Krause <a.krause@epcc.ed.ac.uk>
 
-RUN apt-get update && apt-get install wget curl python-dev python-pip python-setuptools git openmpi-bin openmpi-common libopenmpi-dev -y
+RUN apt-get update && apt-get install -y  \
+    wget \
+    curl \
+    python-dev \
+    python-pip \
+    python-setuptools \
+    git \
+    openmpi-bin \
+    openmpi-common \
+    libopenmpi-dev
+
 RUN pip install mpi4py
 
 # install dispel4py latest
