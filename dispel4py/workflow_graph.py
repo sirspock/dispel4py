@@ -134,7 +134,7 @@ class WorkflowGraph(object):
                                        (fromConnection, toConnection)]})
 
     def getContainedObjects(self):
-        nodes = [node.getContainedObject() for node in self.graph.nodes()]
+        nodes = [node.getContainedObject() for node in list(self.graph.nodes())]
         return sorted(nodes, key=lambda x: x.id)
 
     def propagate_types(self):
@@ -144,7 +144,7 @@ class WorkflowGraph(object):
         connected consumers.
         '''
         visited = set()
-        for node in self.graph.nodes():
+        for node in list(self.graph.nodes()):
             if node not in visited:
                 self.__assign_types(node, visited)
 
@@ -176,7 +176,7 @@ class WorkflowGraph(object):
         while hasComposites:
             hasComposites = False
             toRemove = set()
-            for node in self.graph.nodes():
+            for node in list(self.graph.nodes()):
                 if node.nodeType == WorkflowNode.WORKFLOW_NODE_CP:
                     hasComposites = True
                     toRemove.add(node)
