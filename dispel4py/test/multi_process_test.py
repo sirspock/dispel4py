@@ -214,7 +214,7 @@ def coverage_multiprocessing_process():    # pragma: no cover
         return
 
     from coverage.collector import Collector
-    from coverage.control import coverage
+    from coverage import coverage
     # detect if coverage was running in forked process
     if Collector._collectors:
         original = multiprocessing.Process._bootstrap
